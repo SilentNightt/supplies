@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Layout } from 'antd';
+import AppSiderContent from '../sider/AppSiderContent';
+import Modal from '../model/Modal';
 
 const { Sider } = Layout;
 
@@ -11,9 +13,15 @@ const siderStyle = {
   };
 
 export default function () {
+
+  const [modalAcrive, setModalAcrive] = useState(true)
+
     return(
-      <Sider width="20%" style={siderStyle}>
-        Sider
+      <Sider style={siderStyle}>
+        <button onClick={() => setModalAcrive(true)}>Каллендарь</button>
+        <Modal active={modalAcrive} setActive={setModalAcrive}>
+          <AppSiderContent/>
+        </Modal>
       </Sider>
     )
 }
