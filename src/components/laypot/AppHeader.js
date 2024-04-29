@@ -1,5 +1,6 @@
 import React from 'react';
 import { Flex, Layout } from 'antd';
+import AppInputHeader from '../header/AppInputHeader';
 
 const { Header } = Layout;
 
@@ -13,6 +14,8 @@ const headerStyle = {
 
 export default function AppHeader() {
     return(
-        <Header style={headerStyle}>Header</Header>
+        <Header style={headerStyle}>
+            <AppInputHeader/>
+        </Header>
     )
 }
