@@ -1,0 +1,16 @@
+.content_card{
+    width: 100vh;
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+    border: 5px solid;
+    border-color: blueviolet;
+    margin-top: 15px;
+    margin-left: 50vh;
+    align-items: center;
+}
+
+.content__body{
+    display: flex;
+    flex-direction: column;
+}
