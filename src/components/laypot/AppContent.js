@@ -18,6 +18,7 @@ export default function AppContent() {
     {id: 1, name: 'R1000', discription: "Have smth"},
     {id: 2, name: 'R1012', discription: "Have nothing"},
     {id: 3, name: 'R10321', discription: "Have smth"},
+    {id: 4, name: 'R1001', discription: "Have smth"},
   ])
 
     return (<Content style={contentStyle}>
