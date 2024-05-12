@@ -35,6 +35,8 @@ export default function AppContent() {
     }
 
     setPosition([...position, newPosition])
+    setTitle('')
+    setContent('')
   }
 
     return (<Content style={contentStyle}>
