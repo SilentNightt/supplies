@@ -1,0 +1,11 @@
+.main-input{
+    display: flex;
+    width: 60vh;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    height: 30px;
+    margin-left: 65vh;
+    border-radius: 7px;
+
+}

@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import './AppInformation.css'
 
-export default function AppInformation (props) {
+function AppInformation (props) {
+    
     return(
         <div>
             <div className="content_card">
@@ -24,3 +26,5 @@ export default function AppInformation (props) {
 
     )
 }
+
+export default AppInformation
