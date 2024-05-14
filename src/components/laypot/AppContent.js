@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Flex, Layout } from 'antd';
 import AppInformation from '../content/AppInformation';
 import AppHeaderInput from '../UI/AppHeaderInput';
@@ -26,7 +26,10 @@ export default function AppContent() {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
+
   function addNewPosition(e) {
+    
+    // Делаем так, что бы страниза не обновлялась
     e.preventDefault()
     let newPosition = {
       id: Date.now(),
@@ -37,6 +40,7 @@ export default function AppContent() {
     setPosition([...position, newPosition])
     setTitle('')
     setContent('')
+
   }
 
     return (<Content style={contentStyle}>
@@ -51,7 +55,7 @@ export default function AppContent() {
         onChange={e => setContent(e.target.value)}
         placeholder="Содержимое"/>
         <AppHeaderButton onClick={addNewPosition}>Создать пост</AppHeaderButton>
-        
+
         {position.map(card => 
           <AppInformation position = {card} key = {card.id}/>)
         }
