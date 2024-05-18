@@ -1,17 +1,29 @@
 import { useState } from "react"
+import './AppInputHeader.css'
+import { SearchOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 
 export default function AppInputHeader() {
     
-    const [inputV, setInputV] = useState('Поиск')
+    const [inputV, setInputV] = useState('')
+
+    function searchInfo() {
+        setInputV('')
+    }
 
     return(
-            <div>
-                <input 
+            <div className="header__main">
+                <input className="header__input"
                 type="text" 
                 value={inputV} 
                 onChange={event => setInputV(event.target.value)}
                 />
-                <button onClick={() => console.log(inputV)}>Поиск</button>
+
+                <Button className="headerS_button" 
+                onClick = {searchInfo} 
+                icon={<SearchOutlined />}>
+                    Search
+                </Button>
             </div>    
     )
 }
