@@ -1,34 +1,29 @@
-import { useState } from 'react'
 import './AppInformation.css'
 
 function AppInformation (props) {
 
-    const [posts, setPosts] = useState(props.position) 
+    const { position, onDelete } = props;
 
-    function deletePost() {
-        setPosts('')
-    }
+    const handleDelete = () => {
+        onDelete(position.id);
+    };
 
     return(
-        <div>
-            <div className="content_card">
+    <div className="content_card">
                 <div className="content__body">
-                    <strong>
-                     {posts.name}
+                    <strong className="content__title">
+                        {position.name}
                     </strong>
-                    <div>
-                     {posts.discription}
+                    <div className="content__description">
+                        {position.discription}
                     </div>
                 </div>
-            
                 <div className="content__btn">
-                    <button onClick={deletePost}>
-                       Удалить
+                    <button onClick={handleDelete}>
+                        Удалить
                     </button>
                 </div>
-
-            </div>       
-        </div>
+            </div>
 
     )
 }

@@ -3,49 +3,48 @@ import { Layout } from 'antd';
 import AppSiderContent from '../sider/AppSiderContent';
 import Modal from '../model/Modal';
 import AppCheckbox from '../sider/AppCheckbox';
-import './Sider.css'
-
+import './Sider.css';
 
 const { Sider } = Layout;
 
 const filterNames = {
-  filterChair: 'Стул',
-  filterTaible: 'Стол',
-  filterDSP: 'ДСП',
-  filterTools: 'Стройматериалы',
-}
+  filterChair: 'Модель А',
+  filterTaible: 'Модель В',
+  filterDSP: 'Модель С',
+  filterTools: 'Модель D',
+};
 
 const siderStyle = {
-    textAlign: 'center',
-    height: '100vh',
-    color: '#fff',
-    backgroundColor: '#1677ff',
-  };
+  textAlign: 'center',
+  height: '100vh',
+  color: '#fff',
+  backgroundColor: '#1677ff',
+  padding: '20px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+};
 
-export default function () {
+export default function AppSider() {
+  const [modalActive, setModalActive] = useState(false);
 
-  const [modalAcrive, setModalAcrive] = useState(false)
-
-    return(
-      <Sider style={siderStyle}>
-        <button onClick={() => setModalAcrive(true)}>Каллендарь</button>
-        <Modal active={modalAcrive} setActive={setModalAcrive}>
-          <AppSiderContent/>
+  return (
+    <Sider style={siderStyle}>
+      <div>
+        <button className="sider-button" onClick={() => setModalActive(true)}>
+          Каллендарь
+        </button>
+        <Modal active={modalActive} setActive={setModalActive}>
+          <AppSiderContent />
         </Modal>
-        <div className='filter'>
-          <div> 
-              <AppCheckbox name={filterNames.filterChair}/>
+        <div className="filter">
+          {Object.keys(filterNames).map(key => (
+            <div className="filter-item" key={key}>
+              <AppCheckbox name={filterNames[key]} />
             </div>
-            <div>
-              <AppCheckbox name={filterNames.filterTaible}/>
-            </div>
-            <div>
-              <AppCheckbox name={filterNames.filterDSP}/>
-            </div>
-            <div>
-              <AppCheckbox name={filterNames.filterTools}/>
-            </div>
+          ))}
         </div>
-      </Sider>
-    )
+      </div>
+    </Sider>
+  );
 }

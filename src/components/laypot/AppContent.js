@@ -43,21 +43,33 @@ export default function AppContent() {
 
   }
 
+  function DeletePost(id) {
+    setPosition(position.filter(post => post.id !== id))
+  }
+
     return (<Content style={contentStyle}>
+
         <AppHeaderInput 
         type = "text"
         value={title}
         onChange={e => setTitle(e.target.value)}
         placeholder="Название поста"/>
+
         <AppHeaderInput 
         type = "text"
         value={content}
         onChange={e => setContent(e.target.value)}
         placeholder="Содержимое"/>
-        <AppHeaderButton onClick={addNewPosition}>Создать пост</AppHeaderButton>
+
+        <AppHeaderButton onClick={addNewPosition}>
+          Создать пост
+        </AppHeaderButton>
 
         {position.map(card => 
-          <AppInformation position = {card} key = {card.id}/>)
+          <AppInformation 
+            position = {card} 
+            key = {card.id}
+            onDelete = {DeletePost}/>)
         }
         
     </Content>)
